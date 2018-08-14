@@ -15,8 +15,6 @@ export enum GetMethod {
 }
 
 export enum ControllerType {
-    patient,
-    doctor,
     profile,
     manage
 }
