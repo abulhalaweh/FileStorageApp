@@ -1,0 +1,28 @@
+#confirmation{
+    /* display: none; */
+}
+
+.modal-sm{
+    width: 250px;
+}
+
+#ConfirmModal input{
+    display: block;
+    margin: auto;
+    width: 120px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#cancelBtn{
+    margin: auto;
+    width: 120px;
+}
+
+#titleConfirm{
+    font-family: Helvetica;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}

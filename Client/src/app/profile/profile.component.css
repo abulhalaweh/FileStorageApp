@@ -1,0 +1,27 @@
+#sideBar{
+    margin-left: 30px;
+    padding-top: 20px;
+}
+
+#profileTabs{
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.nav a{
+    color: #FFFCF8;
+    text-decoration: none;
+    transition: 0.8s;
+}
+
+.custom-color .active,
+.custom-color .active:hover {
+    background-color: rgba(81, 159, 211, 0.829);
+}
+
+#profileContent{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10%;
+    width: 600px;
+}

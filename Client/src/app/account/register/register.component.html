@@ -1,0 +1,152 @@
+<div class="modal fade" id="RegisterModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="titleRegist">Register</h5>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="GooglePlus">
+                    <button type="submit" (click)="externalSignIn.googleSignIn()" name="provider" value="">
+                        <i class="fab fa-google-plus fa-4x"></i>
+                    </button>
+                </div>
+
+                <form #regForm="ngForm" userExists="false" novalidate (ngSubmit)="onSubmit(regForm.value)">
+                    
+                    <div class="form-group">
+                        <div *ngIf="regForm.invalid && regForm.errors?.server" class="form-control danger-alert">
+                            <div>
+                                {{regForm.errors.server}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" name="lastName" ngModel #lastName="ngModel" 
+                        required validateEmpty minlength="2" maxlength="15" placeholder="Last name" />
+                
+                        <div *ngIf="lastName.invalid && lastName.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="lastName.errors.required">
+                                Last name is required.
+                            </div>
+                            <div *ngIf="lastName.errors.minlength">
+                                Last name must be at least 2 characters long.
+                            </div>
+                            <div *ngIf="lastName.errors.validateEmpty">
+                                Last name cannot have white spaces.
+                            </div>
+                            <div *ngIf="lastName.errors?.server">
+                                {{lastName.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" name="firstName" ngModel #firstName="ngModel" 
+                        required validateEmpty minlength="2" maxlength="15" placeholder="First name" />
+                
+                        <div *ngIf="firstName.invalid && firstName.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="firstName.errors.required">
+                                First name is required.
+                            </div>
+                            <div *ngIf="firstName.errors.minlength">
+                                First name must be at least 2 characters long.
+                            </div>
+                            <div *ngIf="firstName.errors.validateEmpty">
+                                First name cannot have white spaces.
+                            </div>
+                            <div *ngIf="firstName.errors?.server">
+                                {{firstName.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" name="email" ngModel #email="ngModel"
+                        required email placeholder="Email" />
+                
+                        <div *ngIf="email.invalid && email.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                Incorrect email input.
+                            </div>
+                            <div *ngIf="email.errors.userExists">
+                                {{email.errors.userExists}}
+                            </div>
+                            <div *ngIf="email.errors?.server">
+                                {{email.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" ngModel #password="ngModel" 
+                        required minlength="6" maxlength="25" placeholder="Password" />
+                
+                        <div *ngIf="password.invalid && password.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="password.errors.required">
+                                Password is required.
+                            </div>
+                            <div *ngIf="password.errors.minlength">
+                                Password must be between 6 and 25 characters.
+                            </div>
+                            <div *ngIf="password.errors?.server">
+                                {{password.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="confirmPassword" ngModel #confirmPassword="ngModel" 
+                        validateEqual="password" maxlength="25" placeholder="Password confirmation" />
+                
+                        <div *ngIf="confirmPassword.invalid && !confirmPassword.pristine" 
+                        class="form-control danger-alert">
+
+                            <div *ngIf="confirmPassword.errors.validateEqual === false">
+                                Password confirmation doesn't match password.
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control checkbox" type="checkbox" name="registerAsDoctor" ngModel>
+                        <label class="label" for="">Register as a admin</label>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="modal-footer">
+                            <button type="button" #closeBtn (click)="formReset()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" [disabled]="regForm.invalid || regForm.disabled" class="btn btn-primary">Register</button>
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+    
+        </div>
+
+    </div>
+</div>
+
+<app-confirmation-cmp [externalSignIn]="externalSignIn"></app-confirmation-cmp>

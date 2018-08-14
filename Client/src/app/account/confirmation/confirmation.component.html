@@ -1,0 +1,30 @@
+<a #confirmation id="confirmation" data-toggle="modal" data-target="#ConfirmModal" href="#"></a>
+
+<div id="ConfirmModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="combobox" aria-labelledby="confirmModalCenterTitle" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="titleConfirm">You don't have an account, choose the register type</h5>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <input type="button" class="btn btn-success" data-dismiss="modal" (click)="externalSignIn.proceedWithLogin($event.target.value)" value="Patient">
+                    <input type="button" class="btn btn-success" data-dismiss="modal" (click)="externalSignIn.proceedWithLogin($event.target.value)" value="Doctor">
+                </div>
+
+                <div class="form-group">
+                    <div class="modal-footer">
+                        <button type="button" id="cancelBtn" class="btn btn-secondary" data-dismiss="modal" (click)="externalSignIn.proceedWithLogin($event.target.value)" value="Cancel">Cancel</button>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,47 @@
+.table td{
+    box-shadow: inset 0px 0px 15px 5px rgb(220, 232, 233);
+    color: rgb(92, 86, 78);
+}
+
+.dataCell {
+    box-shadow: inset 0px 0px 15px 5px rgb(220, 232, 233);
+    color: rgb(92, 86, 78);
+}
+
+.table th{
+    color: rgb(117, 110, 100);
+    font-size: 18px;
+}
+
+.table th {
+    vertical-align: top;
+}
+
+.table th, td {
+    text-align: center;
+    padding-top: 3%;
+}
+
+.editBtn, .deleteBtn, .addBtn {
+    width: 80px;
+}
+
+.btnsCell{
+    padding-top: 1.5%;
+}
+
+.invisible{
+    display: none;
+}
+
+#NoContent{
+    width: 280px;
+    margin-left: 100%;
+}
+
+#NoContent p {
+    font-style: italic;
+    color: rgb(117, 110, 100);
+    font-size: 18px;
+    text-align: center;
+}

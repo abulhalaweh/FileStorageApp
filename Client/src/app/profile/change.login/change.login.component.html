@@ -1,0 +1,51 @@
+<form #changeLogForm="ngForm" userExists="false" novalidate (ngSubmit)="onChange(changeLogForm, email.value)">
+
+    <div class="form-group">
+        <input class="form-control" name="currentEmail" (change)="checkUsername(currentEmail)" type="email" ngModel #currentEmail="ngModel" 
+        required email placeholder="Current email" />
+
+        <div *ngIf="currentEmail.invalid && currentEmail.dirty"
+        class="form-control danger-alert">
+
+            <div *ngIf="currentEmail.errors.required">
+                Current email field is required.
+            </div>
+            <div *ngIf="currentEmail.errors.email">
+                Incorrect email input.
+            </div>
+            <div *ngIf="currentEmail.errors?.userExists">
+                {{currentEmail.errors.userExists}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" name="email" type="email" ngModel #email="ngModel" 
+        required email placeholder="New email" />
+
+        <div *ngIf="email.invalid && email.dirty"
+        class="form-control danger-alert">
+
+            <div *ngIf="email.errors.required">
+                New email field is required.
+            </div>
+            <div *ngIf="email.errors.email">
+                Incorrect email input.
+            </div>
+            <div *ngIf="email.errors?.userExists">
+                {{email.errors.userExists}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit"
+            [disabled]="changeLogForm.invalid || btnBlock"
+            class="btn btn-success btn-sm">
+            Change
+        </button>
+    </div>
+
+</form>

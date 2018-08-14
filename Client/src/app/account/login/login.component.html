@@ -1,0 +1,89 @@
+<div #LoginModal id="LoginModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="logModalCenterTitle" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="titleLog">Login</h5>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="GooglePlus">
+                    <button type="submit" (click)="externalSignIn.googleSignIn()" name="provider" value="">
+                        <i class="fab fa-google-plus fa-4x"></i>
+                    </button>
+                </div>
+
+                <form #logForm="ngForm" userExists="true" novalidate (ngSubmit)="onSubmit(logForm.value)">
+                    
+                    <div class="form-group">
+                        <div *ngIf="logForm.invalid && logForm.errors?.server" class="form-control danger-alert">
+                            <div>
+                                {{logForm.errors.server}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" ngModel #email="ngModel" 
+                        required email placeholder="Email" />
+                
+                        <div *ngIf="email.invalid && email.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="email.errors.required">
+                                Email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                Incorrect email input.
+                            </div>
+                            <div *ngIf="email.errors?.userExists">
+                                {{email.errors.userExists}}
+                            </div>
+                            <div *ngIf="email.errors?.server">
+                                {{email.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" ngModel #password="ngModel" 
+                        required minlength="6" maxlength="25" placeholder="Password" />
+                
+                        <div *ngIf="password.invalid && password.dirty"
+                        class="form-control danger-alert">
+                
+                            <div *ngIf="password.errors.required">
+                                Password is required.
+                            </div>
+                            <div *ngIf="password.errors.minlength">
+                                Password must be between 6 and 25 characters.
+                            </div>
+                            <div *ngIf="password.errors?.server">
+                                {{password.errors.server}}
+                            </div>
+                
+                        </div>
+                    </div>
+                    
+                    <a (click)="goToRegister()" id="reg-link" class="nav-link">Register as a new user</a>
+
+                    <div class="form-group">
+                        <div class="modal-footer">
+                            <button type="button" #closeBtn (click)="formReset()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" [disabled]="logForm.invalid || logForm.disabled" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+
+                </form>
+                
+            </div>
+    
+        </div>
+
+    </div>
+</div>
+
+<app-confirmation-cmp [externalSignIn]="externalSignIn"></app-confirmation-cmp>

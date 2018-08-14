@@ -1,0 +1,72 @@
+<table class="table table-hover table-inverse table-responsive">
+  <thead class="thead-default">
+      <tr id="tableHeader">
+        <th *ngFor="let h of profileSrc.Headers">{{h}}</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr *ngFor="let it of items" class="tableRow">
+        <td *ngFor="let v of it" scope="row">{{v}}</td>
+        <td class="btnsCell">
+          <button
+          type="button"
+          name="addUser"
+          (click)="actionOnClick($event)"
+          [ngClass]="{invisible: addedUsers}"
+          class="btn btn-success addBtn">Add</button>
+          
+          <!--     (click)="actionOnClick($event)" -->
+          <button
+          type="button"
+          name="editUser"
+      
+          [ngClass]="{invisible: !addedUsers ||
+          profileSrc.UserType === 0}"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          class="btn btn-primary editBtn">Edit</button>
+
+          <button
+          type="button"
+          name="deleteUser"
+          (click)="actionOnClick($event)"
+          [ngClass]="{invisible: !addedUsers}"
+          class="btn btn-secondary deleteBtn">Delete</button>
+        </td>
+      </tr>
+      <div id="NoContent" [ngClass]="{invisible: items.length !== 0}">
+        <p>No data here yet!</p>
+      </div>
+    </tbody>
+</table>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+              <label for="item-name" class="col-form-label">Name:</label>
+              <input [(ngModel)]="editName" type="text" class="form-control" id="item-name">
+            </div>
+            <div class="form-group">
+              <label for="item-type" class="col-form-label">Type:</label>
+              <input [(ngModel)]="editType" type="text" class="form-control" id="item-type">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="saveOnClick($event)" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

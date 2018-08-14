@@ -1,0 +1,74 @@
+body{
+	font-family: Helvetica;
+}
+
+.logo{
+	float:left;
+	font-size: 44px;
+	cursor: pointer;
+}
+
+.logo a, .logo a:hover{
+	color:#333333;
+	text-decoration: none;
+}
+
+.nova, .clinic{
+	display: inline-block;
+	color: #ff8919;
+}
+
+.clinic{
+	color: #333333;
+}
+
+.navbar{
+	padding-left: 60px;
+	height: 80px;
+	margin-bottom: 10px;
+	background-color: #C4E7FF;
+}
+
+.custom{
+	border: none;
+}
+
+.nav-item{
+	font-size: 23px;
+	margin-left: 23px;
+	opacity: 1;
+	transition: opacity 1s;
+	cursor: pointer;
+}
+
+#body-container{
+	height: 370px;
+	background: url(../images/medicineWithLove.jpg) no-repeat center/cover #8ddbdf;
+}
+
+.footer{
+	background-color: #C4E7FF;
+	text-align: center;
+	margin-top: 25px;
+	padding: 40px 0px;
+	height: 100px;
+}
+
+.footer > .container{
+	height: 70px;
+	margin-top: -2%;
+}
+
+.socialnet a{
+	padding: 0px 20px;
+	color: #333333;
+}
+
+.socialnet i:hover{
+	color: #ff8919;
+}
+ 
+ .hide {
+	opacity: 0;
+	transition: opacity 1s;
+ }

@@ -1,0 +1,137 @@
+<form id="userProfile"
+    (change)="onChnage()" 
+    #profileForm="ngForm" 
+    novalidate 
+    (ngSubmit)="onSaveChanges()">
+
+    <div class="form-group">
+        <div *ngIf="profileForm.invalid && profileForm.errors?.server" class="form-control danger-alert">
+            <div>
+                {{profileForm.errors.server}}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" type="text" name="lastName" ngModel #lastName="ngModel" 
+        required validateEmpty minlength="2" maxlength="15" placeholder="Last name" />
+    
+        <div *ngIf="lastName.invalid && lastName.dirty"
+        class="form-control danger-alert">
+
+            <div *ngIf="lastName.errors.required">
+                Last name is required.
+            </div>
+            <div *ngIf="lastName.errors.minlength">
+                Last name must be at least 2 characters long.
+            </div>
+            <div *ngIf="lastName.errors.validateEmpty">
+                Last name cannot have white spaces.
+            </div>
+            <div *ngIf="lastName.errors?.server">
+                {{lastName.errors.server}}
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control" name="firstName" ngModel #firstName="ngModel" 
+        required validateEmpty minlength="2" maxlength="15" placeholder="First name" />
+    
+        <div *ngIf="firstName.invalid && firstName.dirty"
+        class="form-control danger-alert">
+
+            <div *ngIf="firstName.errors.required">
+                First name  is required.
+            </div>
+            <div *ngIf="firstName.errors.minlength">
+                First name must be at least 2 characters long.
+            </div>
+            <div *ngIf="firstName.errors.validateEmpty">
+                First name cannot have white spaces.
+            </div>
+            <div *ngIf="firstName.errors?.server">
+                {{firstName.errors.server}}
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control" disabled="disabled" name="email" ngModel #email="ngModel"
+        placeholder="Email" />
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control" name="age" type="number" ngModel #age="ngModel"
+        min="18" max="99" placeholder="Age" />
+    
+        <div *ngIf="age.invalid && age.dirty"
+        class="form-control danger-alert">
+    
+            <div *ngIf="age.errors.min">
+                You have to be at least 18 years old.
+            </div>
+            <div *ngIf="age.errors.max">
+                You can't be more than 99 years old.
+            </div>
+            <div *ngIf="age.errors?.server">
+                {{age.errors.server}}
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{invisible: userType === 'Doctor'}">
+        <input class="form-control" disabled="disabled" name="registryDate" ngModel type="text"/>
+    </div>
+
+    <div class="form-group" [ngClass]="{invisible: userType === 'Patient'}">
+        <input class="form-control" name="specialization" ngModel #spc="ngModel"
+        validateEmpty minlength="3" maxlength="15" placeholder="Specialization" />
+    
+        <div *ngIf="spc.invalid && spc.dirty" class="form-control danger-alert">
+    
+            <div *ngIf="spc.errors.validateEmpty">
+                Specialization cannot have white spaces.
+            </div>
+            <div *ngIf="spc.errors.minlength">
+                Specialization must be at least 3 characters long.
+            </div>
+            <div *ngIf="spc.errors?.server">
+                {{spc.errors.server}}
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="form-group" [ngClass]="{invisible: userType === 'Patient'}">
+        <input class="form-control" name="yearsOfExperience" type="number" ngModel #exp="ngModel"
+        min="1" max="45" placeholder="Experience" />
+    
+        <div *ngIf="exp.invalid && exp.dirty"
+        class="form-control danger-alert">
+    
+            <div *ngIf="exp.errors.min">
+                Experience have to be at least 1 year.
+            </div>
+            <div *ngIf="exp.errors.max">
+                Experience can't be more than 45 years.
+            </div>
+            <div *ngIf="exp.errors?.server">
+                {{exp.errors.server}}
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit"
+            [disabled]="profileForm.invalid || isModelEqual"
+            class="btn btn-success btn-sm">
+            Save changes
+        </button>
+    </div>
+
+</form>
