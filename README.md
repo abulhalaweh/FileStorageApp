@@ -1,5 +1,5 @@
 # Project Info
-It's a web application to keep track of doctors’ and patients’ records and for manipulating their personal data.
+It's a web application to store files (like drop box)
 
 # Client
 
