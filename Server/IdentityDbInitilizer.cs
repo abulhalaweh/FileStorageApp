@@ -33,8 +33,7 @@ namespace FileStorage.Server
             var roles = new List<ApplicationRole>()
             {
                 new ApplicationRole { Name = "Admin", Description = "Unlimited access"},
-                new ApplicationRole { Name = "Doctor", Description = "Permission to create and manage patients"},
-                new ApplicationRole { Name = "Patient", Description = "Permission to add doctors" }
+                new ApplicationRole { Name = "General", Description = "Permission to create and manage files"},
             };
 
             foreach (var role in roles.Where(r => !_roleManager.RoleExistsAsync(r.Name).Result))
