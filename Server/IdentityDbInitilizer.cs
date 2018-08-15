@@ -48,8 +48,8 @@ namespace FileStorage.Server
             {
                 var newUser = new ApplicationUser("admin@gmail.com") 
                 { 
-                    FirstName = "Alex", 
-                    LastName = "Vagner",
+                    FirstName = "Nader", 
+                    LastName = "Abulhalaweh",
                     LockoutEnabled = false 
                 };
                 _userManager.CreateAsync(newUser, "password").GetAwaiter().GetResult();
