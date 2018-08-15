@@ -70,7 +70,7 @@ namespace FileStorage.Controllers
             }
             return new ContentResult() { Content = "Such a user is already added!", StatusCode = 403 };
         }
-        
+
         private bool UploadFile()
         {
             try
@@ -104,16 +104,43 @@ namespace FileStorage.Controllers
         public async Task<IActionResult> DeleteFile(FileDTO dto)
         {
             var user = await GetCurrentUser();
-            
+
             if (user != null)
             {
-                var file = await _context.FilesDB.Where(f=> f.FileId == dto.FileId).FirstOrDefaultAsync();
-                
+                var file = await _context.FilesDB.Where(f => f.FileId == dto.FileId).FirstOrDefaultAsync();
+
                 user.UserFiles.Remove(file);
                 _context.SaveChanges();
                 return Ok();
             }
-            return new ContentResult() { Content = "There is no such a user to delete!", StatusCode = 403 };
+            return new ContentResult() { Content = "There is no such a file to delete!", StatusCode = 403 };
+        }
+
+        [HttpPut("{id}")]
+        [Route("updateFile")]
+        public async Task<IActionResult> Update(long id, [FromBody] FileDTO dto)
+        {
+            // set bad request if contact data is not provided in body
+            if (dto == null || id == 0)
+            {
+                return BadRequest();
+            }
+
+            var user = await GetCurrentUser();
+
+            var file = await _context.FilesDB.Where(f => f.FileId == dto.FileId && f.CreatedByID == user.Id).FirstOrDefaultAsync();
+            if (file == null)
+            {
+                return NotFound();
+            }
+
+            file.FileName = dto.FileName;
+            file.FilePath = dto.FilePath;
+            file.FileSize = dto.FileSize;
+
+            _context.FilesDB.Update(file);
+            _context.SaveChanges();
+            return Ok(new { message = "file is updated successfully." });
         }
 
         private async Task<ApplicationUser> GetCurrentUser()

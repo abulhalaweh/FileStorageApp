@@ -1,7 +1,8 @@
 
 export enum PostMethod {
     addFile,
-    deleteDelete,
+    deleteFile,
+    updateFile,
     editUser,
     editProfile,
     changeLogin,
@@ -15,6 +16,7 @@ export enum GetMethod {
 }
 
 export enum ControllerType {
+    filedbs,
     patient,
     doctor,
     profile,

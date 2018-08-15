@@ -1995,11 +1995,12 @@ __webpack_require__.r(__webpack_exports__);
 var PostMethod;
 (function (PostMethod) {
     PostMethod[PostMethod["addFile"] = 0] = "addFile";
-    PostMethod[PostMethod["deleteDelete"] = 1] = "deleteDelete";
-    PostMethod[PostMethod["editUser"] = 2] = "editUser";
-    PostMethod[PostMethod["editProfile"] = 3] = "editProfile";
-    PostMethod[PostMethod["changeLogin"] = 4] = "changeLogin";
-    PostMethod[PostMethod["changePassword"] = 5] = "changePassword";
+    PostMethod[PostMethod["deleteFile"] = 1] = "deleteFile";
+    PostMethod[PostMethod["updateFile"] = 2] = "updateFile";
+    PostMethod[PostMethod["editUser"] = 3] = "editUser";
+    PostMethod[PostMethod["editProfile"] = 4] = "editProfile";
+    PostMethod[PostMethod["changeLogin"] = 5] = "changeLogin";
+    PostMethod[PostMethod["changePassword"] = 6] = "changePassword";
 })(PostMethod || (PostMethod = {}));
 var GetMethod;
 (function (GetMethod) {
@@ -2009,10 +2010,11 @@ var GetMethod;
 })(GetMethod || (GetMethod = {}));
 var ControllerType;
 (function (ControllerType) {
-    ControllerType[ControllerType["patient"] = 0] = "patient";
-    ControllerType[ControllerType["doctor"] = 1] = "doctor";
-    ControllerType[ControllerType["profile"] = 2] = "profile";
-    ControllerType[ControllerType["manage"] = 3] = "manage";
+    ControllerType[ControllerType["filedbs"] = 0] = "filedbs";
+    ControllerType[ControllerType["patient"] = 1] = "patient";
+    ControllerType[ControllerType["doctor"] = 2] = "doctor";
+    ControllerType[ControllerType["profile"] = 3] = "profile";
+    ControllerType[ControllerType["manage"] = 4] = "manage";
 })(ControllerType || (ControllerType = {}));
 var UserType;
 (function (UserType) {

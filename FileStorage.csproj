@@ -17,6 +17,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Client\src\models\doctor.model.ts" />
+    <None Remove="Client\src\models\fileDto.ts" />
     <None Remove="Client\src\models\patient.model.ts" />
     <None Remove="Client\src\services\upload.component.ts" />
   </ItemGroup>
@@ -40,5 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Client\src\app\UploadFile\upload.component.ts" />
+    <TypeScriptCompile Include="Client\src\models\fileDto.ts" />
   </ItemGroup>
 </Project>
