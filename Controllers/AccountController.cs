@@ -51,7 +51,8 @@ namespace FileStorage.Controllers
                 user.FirstName = model.FirstName;
                 user.LastName = model.LastName;
 
-                var role = "Admin"; // model.RegisterAsDoctor ? "Doctor" : "Patient";
+                //var role = "Admin"; // model.RegisterAsDoctor ? "Doctor" : "Patient";
+                var role = model.RegisterAsDoctor ? "Doctor" : "Patient";
                 var roleAddResult = await _userManager.AddToRoleAsync(user, role);
                 
                 if (roleAddResult.Succeeded)

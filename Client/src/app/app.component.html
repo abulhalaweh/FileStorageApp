@@ -1,71 +1,67 @@
 <nav class="navbar navbar-expand-md navbar-light">
 
-    <div class="logo" routerLink="/" skipLocationChange>
-        <i class="fa fa-medkit" aria-hidden="true"></i>
-        <div class="nova">File Storage</div>
-        <div class="clinic"></div>
-    </div>
+  <div class="logo" routerLink="/" skipLocationChange>
+    <i class="fa fa-medkit" aria-hidden="true"></i>
+    <div class="nova">File Storage</div>
+    <div class="clinic"></div>
+  </div>
 
-    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
-    </button>
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation"></button>
 
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
 
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active" routerLink="/" skipLocationChange>
-          <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" (click)="isLoggedIn()">
-          <a class="nav-link">My Profile</a>
-        </li>
-        <li class="nav-item" (click)="isLoggedIn()">
-          <a class="nav-link">My Files</a>
-        </li>
-        <li class="nav-item" routerLink="/account/register" skipLocationChange>
-          <a id="regLink"
-             class="nav-link"
-             data-toggle="modal"
-             data-target="#RegisterModal">
-            Register
-          </a>
-        </li>
-        <li class="nav-item" routerLink="/account/login" skipLocationChange>
-          <a id="logLink"
-             class="nav-link"
-             data-toggle="modal"
-             data-target="#LoginModal">
-            Login
-          </a>
-        </li>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active" routerLink="/" skipLocationChange>
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" (click)="isLoggedIn()">
+        <a class="nav-link">My Profile</a>
+      </li>
+      <li class="nav-item" routerLink="/account/register" skipLocationChange>
+        <a id="regLink"
+           class="nav-link"
+           data-toggle="modal"
+           data-target="#RegisterModal">
+          Register
+        </a>
+      </li>
+      <li class="nav-item" routerLink="/account/login" skipLocationChange>
+        <a id="logLink"
+           class="nav-link"
+           data-toggle="modal"
+           data-target="#LoginModal">
+          Login
+        </a>
+      </li>
 
-        <li class="nav-item" [ngClass]="{hide: !loggedIn}">
-          <div *ngIf="loggedIn === true">
-            <a class="nav-link" href="#" (click)="hasLoggedOut()">Logout</a>
-          </div>
-        </li>
-      </ul>
+      <li class="nav-item" [ngClass]="{hide: !loggedIn}">
+        <div *ngIf="loggedIn === true">
+          <a class="nav-link" href="#" (click)="hasLoggedOut()">Logout</a>
+        </div>
+      </li>
+    </ul>
 
-    </div>
+  </div>
 
 </nav>
 
 <div id="body-container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 <div class="footer">
 
-    <div class="container">
-    
-        <div class="mail">bardakov.arthur@gmail.com</div>
-    
-        <div class="socialnet">
-            <a href="#"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>
-            <a href="#"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a>
-        </div>
-    
+  <div class="container">
+
+    <div class="mail">abulhalaweh@gmail.com</div>
+
+    <div class="socialnet">
+      <a href="#"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a>
     </div>
-      
+
+  </div>
+
 </div>

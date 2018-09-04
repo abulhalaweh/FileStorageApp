@@ -1,0 +1,13 @@
+#userProfile {
+  box-shadow: inset 0px 0px 20px 15px rgb(220, 232, 233);
+  width: 270px;
+  height: 280px;
+  padding-top: 1%;
+  padding-left: 4%;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.invisible {
+  display: none;
+}

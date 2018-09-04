@@ -364,7 +364,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal fade\" id=\"RegisterModal\" data-backdrop=\"static\" data-keyboard=\"false\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">\r\n    \r\n    <div class=\"modal-dialog modal-dialog-centered modal-lg\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n\r\n            <div class=\"modal-header\">\r\n                <h5 class=\"modal-title\" id=\"titleRegist\">Register</h5>\r\n            </div>\r\n\r\n            <div class=\"modal-body\">\r\n\r\n                <div class=\"GooglePlus\">\r\n                    <button type=\"submit\" (click)=\"externalSignIn.googleSignIn()\" name=\"provider\" value=\"\">\r\n                        <i class=\"fab fa-google-plus fa-4x\"></i>\r\n                    </button>\r\n                </div>\r\n\r\n                <form #regForm=\"ngForm\" userExists=\"false\" novalidate (ngSubmit)=\"onSubmit(regForm.value)\">\r\n                    \r\n                    <div class=\"form-group\">\r\n                        <div *ngIf=\"regForm.invalid && regForm.errors?.server\" class=\"form-control danger-alert\">\r\n                            <div>\r\n                                {{regForm.errors.server}}\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"lastName\" ngModel #lastName=\"ngModel\" \r\n                        required validateEmpty minlength=\"2\" maxlength=\"15\" placeholder=\"Last name\" />\r\n                \r\n                        <div *ngIf=\"lastName.invalid && lastName.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"lastName.errors.required\">\r\n                                Last name is required.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors.minlength\">\r\n                                Last name must be at least 2 characters long.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors.validateEmpty\">\r\n                                Last name cannot have white spaces.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors?.server\">\r\n                                {{lastName.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"firstName\" ngModel #firstName=\"ngModel\" \r\n                        required validateEmpty minlength=\"2\" maxlength=\"15\" placeholder=\"First name\" />\r\n                \r\n                        <div *ngIf=\"firstName.invalid && firstName.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"firstName.errors.required\">\r\n                                First name is required.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors.minlength\">\r\n                                First name must be at least 2 characters long.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors.validateEmpty\">\r\n                                First name cannot have white spaces.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors?.server\">\r\n                                {{firstName.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"email\" ngModel #email=\"ngModel\"\r\n                        required email placeholder=\"Email\" />\r\n                \r\n                        <div *ngIf=\"email.invalid && email.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"email.errors.required\">\r\n                                Email is required.\r\n                            </div>\r\n                            <div *ngIf=\"email.errors.email\">\r\n                                Incorrect email input.\r\n                            </div>\r\n                            <div *ngIf=\"email.errors.userExists\">\r\n                                {{email.errors.userExists}}\r\n                            </div>\r\n                            <div *ngIf=\"email.errors?.server\">\r\n                                {{email.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" type=\"password\" name=\"password\" ngModel #password=\"ngModel\" \r\n                        required minlength=\"6\" maxlength=\"25\" placeholder=\"Password\" />\r\n                \r\n                        <div *ngIf=\"password.invalid && password.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"password.errors.required\">\r\n                                Password is required.\r\n                            </div>\r\n                            <div *ngIf=\"password.errors.minlength\">\r\n                                Password must be between 6 and 25 characters.\r\n                            </div>\r\n                            <div *ngIf=\"password.errors?.server\">\r\n                                {{password.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" type=\"password\" name=\"confirmPassword\" ngModel #confirmPassword=\"ngModel\" \r\n                        validateEqual=\"password\" maxlength=\"25\" placeholder=\"Password confirmation\" />\r\n                \r\n                        <div *ngIf=\"confirmPassword.invalid && !confirmPassword.pristine\" \r\n                        class=\"form-control danger-alert\">\r\n\r\n                            <div *ngIf=\"confirmPassword.errors.validateEqual === false\">\r\n                                Password confirmation doesn't match password.\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control checkbox\" type=\"checkbox\" name=\"registerAsDoctor\" ngModel>\r\n                        <label class=\"label\" for=\"\">Register as a admin</label>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <div class=\"modal-footer\">\r\n                            <button type=\"button\" #closeBtn (click)=\"formReset()\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n                            <button type=\"submit\" [disabled]=\"regForm.invalid || regForm.disabled\" class=\"btn btn-primary\">Register</button>\r\n                        </div>\r\n                    </div>\r\n\r\n                </form>\r\n                \r\n            </div>\r\n    \r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<app-confirmation-cmp [externalSignIn]=\"externalSignIn\"></app-confirmation-cmp>\r\n"
+module.exports = "<div class=\"modal fade\" id=\"RegisterModal\" data-backdrop=\"static\" data-keyboard=\"false\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">\r\n    \r\n    <div class=\"modal-dialog modal-dialog-centered modal-lg\" role=\"document\">\r\n        <div class=\"modal-content\">\r\n\r\n            <div class=\"modal-header\">\r\n                <h5 class=\"modal-title\" id=\"titleRegist\">Register</h5>\r\n            </div>\r\n\r\n            <div class=\"modal-body\">\r\n\r\n                <div class=\"GooglePlus\">\r\n                    <button type=\"submit\" (click)=\"externalSignIn.googleSignIn()\" name=\"provider\" value=\"\">\r\n                        <i class=\"fab fa-google-plus fa-4x\"></i>\r\n                    </button>\r\n                </div>\r\n\r\n                <form #regForm=\"ngForm\" userExists=\"false\" novalidate (ngSubmit)=\"onSubmit(regForm.value)\">\r\n                    \r\n                    <div class=\"form-group\">\r\n                        <div *ngIf=\"regForm.invalid && regForm.errors?.server\" class=\"form-control danger-alert\">\r\n                            <div>\r\n                                {{regForm.errors.server}}\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"lastName\" ngModel #lastName=\"ngModel\" \r\n                        required validateEmpty minlength=\"2\" maxlength=\"15\" placeholder=\"Last name\" />\r\n                \r\n                        <div *ngIf=\"lastName.invalid && lastName.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"lastName.errors.required\">\r\n                                Last name is required.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors.minlength\">\r\n                                Last name must be at least 2 characters long.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors.validateEmpty\">\r\n                                Last name cannot have white spaces.\r\n                            </div>\r\n                            <div *ngIf=\"lastName.errors?.server\">\r\n                                {{lastName.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"firstName\" ngModel #firstName=\"ngModel\" \r\n                        required validateEmpty minlength=\"2\" maxlength=\"15\" placeholder=\"First name\" />\r\n                \r\n                        <div *ngIf=\"firstName.invalid && firstName.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"firstName.errors.required\">\r\n                                First name is required.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors.minlength\">\r\n                                First name must be at least 2 characters long.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors.validateEmpty\">\r\n                                First name cannot have white spaces.\r\n                            </div>\r\n                            <div *ngIf=\"firstName.errors?.server\">\r\n                                {{firstName.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" name=\"email\" ngModel #email=\"ngModel\"\r\n                        required email placeholder=\"Email\" />\r\n                \r\n                        <div *ngIf=\"email.invalid && email.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"email.errors.required\">\r\n                                Email is required.\r\n                            </div>\r\n                            <div *ngIf=\"email.errors.email\">\r\n                                Incorrect email input.\r\n                            </div>\r\n                            <div *ngIf=\"email.errors.userExists\">\r\n                                {{email.errors.userExists}}\r\n                            </div>\r\n                            <div *ngIf=\"email.errors?.server\">\r\n                                {{email.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" type=\"password\" name=\"password\" ngModel #password=\"ngModel\" \r\n                        required minlength=\"6\" maxlength=\"25\" placeholder=\"Password\" />\r\n                \r\n                        <div *ngIf=\"password.invalid && password.dirty\"\r\n                        class=\"form-control danger-alert\">\r\n                \r\n                            <div *ngIf=\"password.errors.required\">\r\n                                Password is required.\r\n                            </div>\r\n                            <div *ngIf=\"password.errors.minlength\">\r\n                                Password must be between 6 and 25 characters.\r\n                            </div>\r\n                            <div *ngIf=\"password.errors?.server\">\r\n                                {{password.errors.server}}\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control\" type=\"password\" name=\"confirmPassword\" ngModel #confirmPassword=\"ngModel\" \r\n                        validateEqual=\"password\" maxlength=\"25\" placeholder=\"Password confirmation\" />\r\n                \r\n                        <div *ngIf=\"confirmPassword.invalid && !confirmPassword.pristine\" \r\n                        class=\"form-control danger-alert\">\r\n\r\n                            <div *ngIf=\"confirmPassword.errors.validateEqual === false\">\r\n                                Password confirmation doesn't match password.\r\n                            </div>\r\n                \r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input class=\"form-control checkbox\" type=\"checkbox\" name=\"registerAsDoctor\" ngModel>\r\n                        <label class=\"label\" for=\"\">Register as a doctor</label>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <div class=\"modal-footer\">\r\n                            <button type=\"button\" #closeBtn (click)=\"formReset()\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n                            <button type=\"submit\" [disabled]=\"regForm.invalid || regForm.disabled\" class=\"btn btn-primary\">Register</button>\r\n                        </div>\r\n                    </div>\r\n\r\n                </form>\r\n                \r\n            </div>\r\n    \r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n\r\n<app-confirmation-cmp [externalSignIn]=\"externalSignIn\"></app-confirmation-cmp>"
 
 /***/ }),
 
@@ -669,6 +669,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+//import { UploadComponent } from './UploadFile/upload.component';
+//import { UploadFileComponent } from './UploadFile/upload.file.component';
 
 
 
@@ -684,10 +686,16 @@ var profileRoutes = [
     { path: 'changePassword', component: _profile_change_password_change_password_component__WEBPACK_IMPORTED_MODULE_9__["ChangePasswordComponent"] },
     { path: '**', redirectTo: '/' }
 ];
+//const uploadRoutes: Routes = [
+//  { path: 'uploadFile', component: UploadComponent },
+//  { path: '**', redirectTo: '/' }
+//];
 var routes = [
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'account', children: accountRoutes },
     { path: 'profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_3__["ProfileComponent"], children: profileRoutes },
+    //{ path: 'upload', component: ProfileComponent, children: profileRoutes },
+    //{ path: 'upload', component: UploadFileComponent, children: uploadRoutes },
     { path: '**', redirectTo: '/' }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -724,7 +732,7 @@ module.exports = "body{\r\n\tfont-family: Helvetica;\r\n}\r\n\r\n.logo{\r\n\tflo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-light\">\r\n\r\n    <div class=\"logo\" routerLink=\"/\" skipLocationChange>\r\n        <i class=\"fa fa-medkit\" aria-hidden=\"true\"></i>\r\n        <div class=\"nova\">File Storage</div>\r\n        <div class=\"clinic\"></div>\r\n    </div>\r\n\r\n    <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\r\n        aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n    </button>\r\n\r\n    <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\r\n\r\n      <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\r\n        <li class=\"nav-item active\" routerLink=\"/\" skipLocationChange>\r\n          <a class=\"nav-link\">Home <span class=\"sr-only\">(current)</span></a>\r\n        </li>\r\n        <li class=\"nav-item\" (click)=\"isLoggedIn()\">\r\n          <a class=\"nav-link\">My Profile</a>\r\n        </li>\r\n        <li class=\"nav-item\" (click)=\"isLoggedIn()\">\r\n          <a class=\"nav-link\">My Files</a>\r\n        </li>\r\n        <li class=\"nav-item\" routerLink=\"/account/register\" skipLocationChange>\r\n          <a id=\"regLink\"\r\n             class=\"nav-link\"\r\n             data-toggle=\"modal\"\r\n             data-target=\"#RegisterModal\">\r\n            Register\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" routerLink=\"/account/login\" skipLocationChange>\r\n          <a id=\"logLink\"\r\n             class=\"nav-link\"\r\n             data-toggle=\"modal\"\r\n             data-target=\"#LoginModal\">\r\n            Login\r\n          </a>\r\n        </li>\r\n\r\n        <li class=\"nav-item\" [ngClass]=\"{hide: !loggedIn}\">\r\n          <div *ngIf=\"loggedIn === true\">\r\n            <a class=\"nav-link\" href=\"#\" (click)=\"hasLoggedOut()\">Logout</a>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n\r\n    </div>\r\n\r\n</nav>\r\n\r\n<div id=\"body-container\">\r\n    <router-outlet></router-outlet>\r\n</div>\r\n\r\n<div class=\"footer\">\r\n\r\n    <div class=\"container\">\r\n    \r\n        <div class=\"mail\">bardakov.arthur@gmail.com</div>\r\n    \r\n        <div class=\"socialnet\">\r\n            <a href=\"#\"><i class=\"fab fa-facebook fa-2x\" aria-hidden=\"true\"></i></a>\r\n            <a href=\"#\"><i class=\"fab fa-twitter fa-2x\" aria-hidden=\"true\"></i></a>\r\n            <a href=\"#\"><i class=\"fab fa-instagram fa-2x\" aria-hidden=\"true\"></i></a>\r\n        </div>\r\n    \r\n    </div>\r\n      \r\n</div>\r\n"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-light\">\r\n\r\n  <div class=\"logo\" routerLink=\"/\" skipLocationChange>\r\n    <i class=\"fa fa-medkit\" aria-hidden=\"true\"></i>\r\n    <div class=\"nova\">File Storage</div>\r\n    <div class=\"clinic\"></div>\r\n  </div>\r\n\r\n  <button class=\"navbar-toggler hidden-lg-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#collapsibleNavId\" aria-controls=\"collapsibleNavId\"\r\n          aria-expanded=\"false\" aria-label=\"Toggle navigation\"></button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"collapsibleNavId\">\r\n\r\n    <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\r\n      <li class=\"nav-item active\" routerLink=\"/\" skipLocationChange>\r\n        <a class=\"nav-link\">Home <span class=\"sr-only\">(current)</span></a>\r\n      </li>\r\n      <li class=\"nav-item\" (click)=\"isLoggedIn()\">\r\n        <a class=\"nav-link\">My Profile</a>\r\n      </li>\r\n      <li class=\"nav-item\" (click)=\"isLoggedIn()\">\r\n        <a class=\"nav-link\">My Files</a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLink=\"/account/register\" skipLocationChange>\r\n        <a id=\"regLink\"\r\n           class=\"nav-link\"\r\n           data-toggle=\"modal\"\r\n           data-target=\"#RegisterModal\">\r\n          Register\r\n        </a>\r\n      </li>\r\n      <li class=\"nav-item\" routerLink=\"/account/login\" skipLocationChange>\r\n        <a id=\"logLink\"\r\n           class=\"nav-link\"\r\n           data-toggle=\"modal\"\r\n           data-target=\"#LoginModal\">\r\n          Login\r\n        </a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [ngClass]=\"{hide: !loggedIn}\">\r\n        <div *ngIf=\"loggedIn === true\">\r\n          <a class=\"nav-link\" href=\"#\" (click)=\"hasLoggedOut()\">Logout</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n\r\n</nav>\r\n\r\n<div id=\"body-container\">\r\n  <router-outlet></router-outlet>\r\n</div>\r\n\r\n<div class=\"footer\">\r\n\r\n  <div class=\"container\">\r\n\r\n    <div class=\"mail\">abulhalaweh@gmail.com</div>\r\n\r\n    <div class=\"socialnet\">\r\n      <a href=\"#\"><i class=\"fab fa-facebook fa-2x\" aria-hidden=\"true\"></i></a>\r\n      <a href=\"#\"><i class=\"fab fa-twitter fa-2x\" aria-hidden=\"true\"></i></a>\r\n      <a href=\"#\"><i class=\"fab fa-instagram fa-2x\" aria-hidden=\"true\"></i></a>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -776,6 +784,18 @@ var AppComponent = /** @class */ (function () {
             });
         }
     };
+    //public isLoggedInToMyStorage(): void {
+    //  if (this.loggedIn === true) {
+    //    this.router.navigate(['/profile/info'], { skipLocationChange: true });
+    //    //this.router.navigate(['/upload/uploadFile'], { skipLocationChange: true });
+    //  } else {
+    //    this.router.navigate(['/account/login'],
+    //      {
+    //        queryParams: { 'redirect': true },
+    //        skipLocationChange: true
+    //      });
+    //  }
+    //}
     AppComponent.prototype.hasLoggedIn = function () {
         this.loggedIn = true;
     };
@@ -887,7 +907,7 @@ module.exports = ".jumbotron-fluid{\r\n\theight: 335px;\r\n\ttext-shadow: grey 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron-fluid\">\r\n    <div class=\"container slider\">\r\n        <h1 class=\"display-3\">Your Cloud Files Storage</h1>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"jumbotron-fluid\">\r\n    <div class=\"container slider\">\r\n      <h1 class=\"display-3\">Your Cloud Files Storage</h1>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1133,7 +1153,7 @@ module.exports = "#sideBar{\r\n    margin-left: 30px;\r\n    padding-top: 20px;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sideBar\">\r\n    <div class=\"nav flex-column nav-pills custom-color\" id=\"profileTabs\" role=\"tablist\" aria-orientation=\"vertical\">\r\n        <a routerLink=\"info\" skipLocationChange class=\"nav-link active\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\">Profile</a>\r\n        <a routerLink=\"/profile/data\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-profile\" aria-selected=\"false\">Find {{relatedUser}}</a>\r\n        <a routerLink=\"/profile/data\" [queryParams]=\"{'addedOnes': true}\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-messages\" aria-selected=\"false\">Show my {{relatedUser}}</a>\r\n        <a routerLink=\"/profile/changeLogin\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\">Change Login</a>\r\n        <a routerLink=\"/profile/changePassword\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\">Change Password</a>\r\n    </div>\r\n    <div class=\"tab-content\" id=\"profileContent\">\r\n        <div class=\"tab-pane fade show active\" id=\"outPut\" role=\"tabpanel\" aria-labelledby=\"outPut-tab\"><router-outlet></router-outlet></div>\r\n    </div>\r\n</div>"
+module.exports = "<div id=\"sideBar\">\r\n  <div class=\"nav flex-column nav-pills custom-color\" id=\"profileTabs\" role=\"tablist\" aria-orientation=\"vertical\">\r\n    <a routerLink=\"/profile/data\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-profile\" aria-selected=\"false\">Find File</a>\r\n    <a routerLink=\"/profile/data\" [queryParams]=\"{'addedOnes': true}\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-messages\" aria-selected=\"false\">Upload File</a>\r\n    <a routerLink=\"/profile/data\" [queryParams]=\"{'addedOnes': true}\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-messages\" aria-selected=\"false\">My Files</a>\r\n    <a routerLink=\"info\" skipLocationChange class=\"nav-link active\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\">Profile</a>\r\n    <a routerLink=\"/profile/changeLogin\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\">Change Login</a>\r\n    <a routerLink=\"/profile/changePassword\" skipLocationChange class=\"nav-link\" id=\"outPut-tab\" data-toggle=\"pill\" href=\"#outPut\" role=\"tab\" aria-controls=\"v-pills-settings\" aria-selected=\"false\">Change Password</a>\r\n  </div>\r\n    <div class=\"tab-content\" id=\"profileContent\">\r\n        <div class=\"tab-pane fade show active\" id=\"outPut\" role=\"tabpanel\" aria-labelledby=\"outPut-tab\"><router-outlet></router-outlet></div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1500,8 +1520,8 @@ var UsersDataComponent = /** @class */ (function () {
     UsersDataComponent.prototype.processParam = function (addedOnes) {
         var _this = this;
         var getMethod = addedOnes === 'true' ?
-            _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getUserFiles : _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getAllFiles;
-        if (getMethod === _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getAllFiles) {
+            _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getMyUsers : _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getUsers;
+        if (getMethod === _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getUsers) {
             if (this.profileSrc.AllUsers.length === 0) {
                 this.getData(getMethod)
                     .subscribe(function () {
@@ -1512,7 +1532,7 @@ var UsersDataComponent = /** @class */ (function () {
                 this.setDataTable(this.profileSrc.AllUsers, false);
             }
         }
-        else if (getMethod === _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getUserFiles) {
+        else if (getMethod === _enums_enum_models__WEBPACK_IMPORTED_MODULE_8__["GetMethod"].getMyUsers) {
             if (this.profileSrc.RelatedUsers.length === 0) {
                 this.getData(getMethod)
                     .subscribe(function () {
@@ -1997,16 +2017,20 @@ var PostMethod;
     PostMethod[PostMethod["addFile"] = 0] = "addFile";
     PostMethod[PostMethod["deleteFile"] = 1] = "deleteFile";
     PostMethod[PostMethod["updateFile"] = 2] = "updateFile";
-    PostMethod[PostMethod["editUser"] = 3] = "editUser";
-    PostMethod[PostMethod["editProfile"] = 4] = "editProfile";
-    PostMethod[PostMethod["changeLogin"] = 5] = "changeLogin";
-    PostMethod[PostMethod["changePassword"] = 6] = "changePassword";
+    PostMethod[PostMethod["addUser"] = 3] = "addUser";
+    PostMethod[PostMethod["deleteUser"] = 4] = "deleteUser";
+    PostMethod[PostMethod["editUser"] = 5] = "editUser";
+    PostMethod[PostMethod["editProfile"] = 6] = "editProfile";
+    PostMethod[PostMethod["changeLogin"] = 7] = "changeLogin";
+    PostMethod[PostMethod["changePassword"] = 8] = "changePassword";
 })(PostMethod || (PostMethod = {}));
 var GetMethod;
 (function (GetMethod) {
     GetMethod[GetMethod["getAllFiles"] = 0] = "getAllFiles";
     GetMethod[GetMethod["getUserFiles"] = 1] = "getUserFiles";
-    GetMethod[GetMethod["info"] = 2] = "info";
+    GetMethod[GetMethod["getUsers"] = 2] = "getUsers";
+    GetMethod[GetMethod["getMyUsers"] = 3] = "getMyUsers";
+    GetMethod[GetMethod["info"] = 4] = "info";
 })(GetMethod || (GetMethod = {}));
 var ControllerType;
 (function (ControllerType) {
@@ -2107,6 +2131,43 @@ var ChangePasswordModel = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/models/doctor.model.ts":
+/*!************************************!*\
+  !*** ./src/models/doctor.model.ts ***!
+  \************************************/
+/*! exports provided: DoctorModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DoctorModel", function() { return DoctorModel; });
+/* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.model */ "./src/models/user.model.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var DoctorModel = /** @class */ (function (_super) {
+    __extends(DoctorModel, _super);
+    function DoctorModel() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.Specialization = undefined;
+        _this.YearsOfExperience = undefined;
+        return _this;
+    }
+    return DoctorModel;
+}(_user_model__WEBPACK_IMPORTED_MODULE_0__["UserModel"]));
+
+
+
+/***/ }),
+
 /***/ "./src/models/email.post.model.ts":
 /*!****************************************!*\
   !*** ./src/models/email.post.model.ts ***!
@@ -2166,6 +2227,42 @@ var GoogleResponse = /** @class */ (function () {
     }
     return GoogleResponse;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/models/patient.model.ts":
+/*!*************************************!*\
+  !*** ./src/models/patient.model.ts ***!
+  \*************************************/
+/*! exports provided: PatientModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PatientModel", function() { return PatientModel; });
+/* harmony import */ var _user_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user.model */ "./src/models/user.model.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var PatientModel = /** @class */ (function (_super) {
+    __extends(PatientModel, _super);
+    function PatientModel() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.RegistryDate = undefined;
+        return _this;
+    }
+    return PatientModel;
+}(_user_model__WEBPACK_IMPORTED_MODULE_0__["UserModel"]));
 
 
 
@@ -2562,14 +2659,16 @@ var HubService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MappingService", function() { return MappingService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _enums_enum_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../enums/enum.models */ "./src/enums/enum.models.ts");
-/* harmony import */ var _models_user_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/user.model */ "./src/models/user.model.ts");
+/* harmony import */ var _models_patient_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/patient.model */ "./src/models/patient.model.ts");
+/* harmony import */ var _models_doctor_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/doctor.model */ "./src/models/doctor.model.ts");
+/* harmony import */ var _enums_enum_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/enum.models */ "./src/enums/enum.models.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2584,11 +2683,11 @@ var MappingService = /** @class */ (function () {
     };
     MappingService.prototype.getRelatedUser = function (userType) {
         var relatedUser;
-        if (userType === _enums_enum_models__WEBPACK_IMPORTED_MODULE_1__["UserType"].Patient) {
-            relatedUser = new _models_user_model__WEBPACK_IMPORTED_MODULE_2__["UserModel"](); //DoctorModel();
+        if (userType === _enums_enum_models__WEBPACK_IMPORTED_MODULE_3__["UserType"].Patient) {
+            relatedUser = new _models_doctor_model__WEBPACK_IMPORTED_MODULE_2__["DoctorModel"]();
         }
         else {
-            relatedUser = new _models_user_model__WEBPACK_IMPORTED_MODULE_2__["UserModel"](); //new PatientModel();
+            relatedUser = new _models_patient_model__WEBPACK_IMPORTED_MODULE_1__["PatientModel"]();
         }
         return relatedUser;
     };
@@ -2761,10 +2860,10 @@ var ProfileService = /** @class */ (function (_super) {
     };
     ProfileService.prototype.getUserType = function () {
         switch (this.UserRole) {
-            case 'patient1':
-                return _enums_enum_models__WEBPACK_IMPORTED_MODULE_7__["UserType"].Admin; //UserType.Patient;
-            case 'doctor1':
-                return _enums_enum_models__WEBPACK_IMPORTED_MODULE_7__["UserType"].Admin; //UserType.Doctor;
+            case 'patient':
+                return _enums_enum_models__WEBPACK_IMPORTED_MODULE_7__["UserType"].Patient;
+            case 'doctor':
+                return _enums_enum_models__WEBPACK_IMPORTED_MODULE_7__["UserType"].Doctor;
             default:
                 return _enums_enum_models__WEBPACK_IMPORTED_MODULE_7__["UserType"].Admin;
         }
@@ -2809,7 +2908,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RequestBuilderService = /** @class */ (function () {
     function RequestBuilderService(http) {
         this.http = http;
-        this.client_id = '719762341905-nsgda0ahgf2loco1mte1jrtbgpu5gg0d.apps.googleusercontent.com'; //'6839ef20b75817b79109';
+        this.client_id = '6839ef20b75817b79109';
     }
     // for requesting secure data using json
     RequestBuilderService.prototype.authJsonHeaders = function () {

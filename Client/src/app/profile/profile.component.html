@@ -1,11 +1,12 @@
 <div id="sideBar">
-    <div class="nav flex-column nav-pills custom-color" id="profileTabs" role="tablist" aria-orientation="vertical">
-        <a routerLink="info" skipLocationChange class="nav-link active" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
-        <a routerLink="/profile/data" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-profile" aria-selected="false">Find {{relatedUser}}</a>
-        <a routerLink="/profile/data" [queryParams]="{'addedOnes': true}" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-messages" aria-selected="false">Show my {{relatedUser}}</a>
-        <a routerLink="/profile/changeLogin" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Login</a>
-        <a routerLink="/profile/changePassword" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Password</a>
-    </div>
+  <div class="nav flex-column nav-pills custom-color" id="profileTabs" role="tablist" aria-orientation="vertical">
+    <a routerLink="/profile/data" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-profile" aria-selected="false">Find File</a>
+    <a routerLink="/profile/data" [queryParams]="{'addedOnes': true}" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-messages" aria-selected="false">Upload File</a>
+    <a routerLink="/profile/data" [queryParams]="{'addedOnes': true}" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-messages" aria-selected="false">My Files</a>
+    <a routerLink="info" skipLocationChange class="nav-link active" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
+    <a routerLink="/profile/changeLogin" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Login</a>
+    <a routerLink="/profile/changePassword" skipLocationChange class="nav-link" id="outPut-tab" data-toggle="pill" href="#outPut" role="tab" aria-controls="v-pills-settings" aria-selected="false">Change Password</a>
+  </div>
     <div class="tab-content" id="profileContent">
         <div class="tab-pane fade show active" id="outPut" role="tabpanel" aria-labelledby="outPut-tab"><router-outlet></router-outlet></div>
     </div>

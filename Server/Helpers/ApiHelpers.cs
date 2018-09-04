@@ -35,7 +35,7 @@ namespace AspNetCoreSpa.Server.Helpers
                                                 string role, 
                                                 bool registerAsDoctor)
         {
-            var group = registerAsDoctor ? "PatientsGroup" : "DoctorsGroup";
+            var group = registerAsDoctor ? "Admin" : "Admin";//"PatientsGroup" : "DoctorsGroup";
             var vModel =  MappingHelper.CreateUserVModel(role);
             MappingHelper.MapModels(user, vModel);
             await _dataHub.Clients.Groups(group).SendCoreAsync("OnNewUserAdded", new object[] { vModel });

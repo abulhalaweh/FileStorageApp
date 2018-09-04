@@ -35,6 +35,19 @@ export class AppComponent {
     }
   }
 
+  //public isLoggedInToMyStorage(): void {
+  //  if (this.loggedIn === true) {
+  //    this.router.navigate(['/profile/info'], { skipLocationChange: true });
+  //    //this.router.navigate(['/upload/uploadFile'], { skipLocationChange: true });
+  //  } else {
+  //    this.router.navigate(['/account/login'],
+  //      {
+  //        queryParams: { 'redirect': true },
+  //        skipLocationChange: true
+  //      });
+  //  }
+  //}
+
   public hasLoggedIn(): void {
       this.loggedIn = true;
   }

@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { HttpClient, HttpRequest, HttpEventType, HttpResponse } from '@angular/common/http'
 
 @Component({
   selector: 'upload-component',
   templateUrl: './upload.component.html'
 })
-export class UploadComponent {
+export class UploadComponent implements AfterViewInit, OnDestroy {
+
+  ngOnDestroy(): void {
+    throw new Error("Method not implemented.");
+  }
+  ngAfterViewInit(): void {
+    throw new Error("Method not implemented.");//this.getUserProfile();
+  }
+
   public progress: number;
   public message: string;
   constructor(private http: HttpClient) { }

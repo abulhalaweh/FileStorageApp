@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
+import { PatientModel } from '../models/patient.model';
+import { DoctorModel } from '../models/doctor.model';
 import { UserType } from '../enums/enum.models';
-import { UserModel } from '../models/user.model';
 
 @Injectable()
 export class MappingService {
@@ -17,9 +18,9 @@ export class MappingService {
         let relatedUser;
 
         if (userType === UserType.Patient) {
-          relatedUser = new UserModel(); //DoctorModel();
+            relatedUser = new DoctorModel();
         } else {
-          relatedUser = new UserModel(); //new PatientModel();
+            relatedUser = new PatientModel();
         }
 
         return relatedUser;

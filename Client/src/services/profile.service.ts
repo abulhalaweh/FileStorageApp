@@ -87,10 +87,10 @@ export class ProfileService extends ApiService {
 
     private getUserType(): any {
         switch (this.UserRole) {
-            case 'patient1':
-            return UserType.Admin;//UserType.Patient;
-            case 'doctor1':
-            return UserType.Admin;//UserType.Doctor;
+            case 'patient':
+                return UserType.Patient;
+            case 'doctor':
+                return UserType.Doctor;
             default:
                 return UserType.Admin;
         }

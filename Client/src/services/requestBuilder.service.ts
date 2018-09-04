@@ -7,7 +7,7 @@ export class RequestBuilderService {
     private readonly client_id: string;
 
     constructor(private http: Http) {
-      this.client_id = '719762341905-nsgda0ahgf2loco1mte1jrtbgpu5gg0d.apps.googleusercontent.com'; //'6839ef20b75817b79109';
+        this.client_id = '6839ef20b75817b79109';
     }
 
     // for requesting secure data using json

@@ -36,9 +36,9 @@ export class UsersDataComponent implements OnDestroy {
 
     private processParam(addedOnes: string): void {
         const getMethod = addedOnes === 'true' ?
-        GetMethod.getUserFiles : GetMethod.getAllFiles;
+        GetMethod.getMyUsers : GetMethod.getUsers;
 
-        if (getMethod === GetMethod.getAllFiles) {
+        if (getMethod === GetMethod.getUsers) {
 
             if (this.profileSrc.AllUsers.length === 0) {
                 this.getData(getMethod)
@@ -49,7 +49,7 @@ export class UsersDataComponent implements OnDestroy {
                 this.setDataTable(this.profileSrc.AllUsers, false);
             }
 
-        } else if (getMethod === GetMethod.getUserFiles) {
+        } else if (getMethod === GetMethod.getMyUsers) {
 
             if (this.profileSrc.RelatedUsers.length === 0) {
                 this.getData(getMethod)
